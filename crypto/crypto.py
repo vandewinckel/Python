@@ -59,6 +59,7 @@ def dif(a,b):
     else:
         return 0
 
+
 #Key Creator
 def getKey(key):
     lenKey = len(key)
@@ -79,13 +80,10 @@ def getKey(key):
         for letter in word:
             KeyL.append(letter)
 
-    difference = dif(len(getKey(key)),len(normal))
     i = 0
-
-    while i in range(difference):
-        del KeyL[-1]
-        i = i + 1
-
+    for i in range(2):
+        print(i)
+   
 form('project2plaintext.txt.txt')
 #print(len(normal))
 #print(numbers)
