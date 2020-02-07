@@ -83,6 +83,7 @@ def getKey(key):
     i = 0
     for i in range(2):
         print(i)
+    print("test")
    
 form('project2plaintext.txt.txt')
 #print(len(normal))
