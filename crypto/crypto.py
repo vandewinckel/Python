@@ -24,6 +24,7 @@ def form(file):
     format = format.replace('.', '')
     format = format.replace(';', '')
     format = format.replace('\n', '')
+    return format
 
     #ADDS TO LIST
     for letter in format:
