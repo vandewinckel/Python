@@ -1,7 +1,8 @@
 # INIT
 #alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 data = []
-freq = {}
+freq = {}   #working freq dict
+letFreq = []    #using freq list
 
 # File - Load Function
 def load(file):
@@ -29,20 +30,22 @@ def form(file):
     format = format.upper()
     return format
 
-def FREQ(message,list_):
+def FREQ(message,dic,output): #Takes message and dictionary [FREQ] and computes letter frequency
     for i in message:
-        list_[i]=list_.get(i,0)+1
-    for i in sorted(list_):
-        print((i, list_[i]), end =" ")
+        dic[i]=dic.get(i,0)+1
+    for i in sorted(dic):
+        output.append(dict(letter = i, frequency = dic[i]))
 
-def COUNTER(message,list_):
+def COUNTER(message,list_): #Takes message and list [data] to compute letter count
     for letters in message:
         list_.append(letters)
     length = (len(list_))
     return length
 
-form('File1.txt')
-message = form(input('File: '))
+def main():
+    message = form(input('File: ')) #Load and format input text file
+    print("Number of Character in DATA:", COUNTER(message,data))
+    print(FREQ(message,freq,letFreq))
+    print(letFreq)
 
-print(COUNTER(message,data))
-FREQ(message,data)
+main()
