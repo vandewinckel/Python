@@ -46,15 +46,28 @@ def COUNTER(message,list_): #Takes message and list [data] to compute letter cou
     return length
 
 def ioc(lst):
+    x = 0
     for i in range(26):
-        iocl.append(lst[i]['frequency'] * (lst[i]['frequency']-1))
-    IOC = sum(iocl)
-    return IOC
+        iocl.append(lst[i]['frequency'])
+        x += lst[i]['frequency']*(lst[i]['frequency']-1)
+    n = sum(iocl)
+    IOC_ = x / (n*(n-1))
+    return IOC_
+
+def keylength(IOC):
+    n=sum(iocl)
+    I = IOC
+    top = (0.0265*n)
+    bottom = ((0.065*I)+(n*(I-0.0385)))
+    KEY = top/bottom
+    return KEY
 
 def main():
     message = form(input('File: ')) #Load and format input text file
     print("Number of Character in DATA:", COUNTER(message,data))
     FREQ(message,freq,letFreq)
-    print(ioc(letFreq))
+    IOF = ioc(letFreq)
+    print(IOF)
+    print(keylength(IOF))
 
 main()
