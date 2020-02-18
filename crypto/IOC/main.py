@@ -1,8 +1,11 @@
 # INIT
 #alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 data = []
+iocl = []
+
 freq = {}   #working freq dict
 letFreq = []    #using freq list
+
 
 # File - Load Function
 def load(file):
@@ -42,10 +45,16 @@ def COUNTER(message,list_): #Takes message and list [data] to compute letter cou
     length = (len(list_))
     return length
 
+def ioc(lst):
+    for i in range(26):
+        iocl.append(lst[i]['frequency'] * (lst[i]['frequency']-1))
+    IOC = sum(iocl)
+    return IOC
+
 def main():
     message = form(input('File: ')) #Load and format input text file
     print("Number of Character in DATA:", COUNTER(message,data))
-    print(FREQ(message,freq,letFreq))
-    print(letFreq)
+    FREQ(message,freq,letFreq)
+    print(ioc(letFreq))
 
 main()
